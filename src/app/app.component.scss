@@ -1,11 +1,14 @@
 .main-container{
     height: 100vh;
-    background-color: antiquewhite;
+    background-color: #e7e7e7;
     padding: 1%;
     .btn-container{
-
+        height: 20%;
+        .btnsize{
+            width: 200px;
+        }
     }
     .content-container{
-
+        height: 80%;
     }
 }

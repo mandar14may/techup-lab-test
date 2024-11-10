@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
@@ -16,7 +16,8 @@ export class AddCustomerComponent {
   countries: string[] = [];
   loadingRegions = false;
   loadingCountries = false;
-
+  ngxControl = new FormControl();
+  
   constructor(
     private dataService: DataService,  
     private fb: FormBuilder,
@@ -57,7 +58,7 @@ export class AddCustomerComponent {
   // Fetch countries based on the selected region
   loadCountriesByRegion(): void {
     const selectedRegion = this.customerForm.value.region;
-    console.log(selectedRegion)
+    console.log('selectedRegion:',selectedRegion);
 
     for (let code in this.dataSet) {
       if (this.dataSet.hasOwnProperty(code) && this.dataSet[code].region === selectedRegion) {

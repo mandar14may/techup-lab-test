@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from '../services/local-storage.service';
+import { NgxSelectModule } from 'ngx-select-ex';
 
 const routes: Routes = [
   { path: '', component: CustomersComponent }
@@ -23,6 +24,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule,
     ReactiveFormsModule,
+    NgxSelectModule,
     HttpClientModule
   ],
   providers: [

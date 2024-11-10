@@ -1,7 +1,9 @@
 <div class="main-container">
-  <div class="btn-container">
-    <button class="btn btn-primary" (click)="openDialog()">Add Customer</button> <br><br>
-    <button class="btn btn-primary" (click)="openPinDialog()">Add Pin</button>
+  <div class="btn-container d-flex justify-content-end">
+    <div class="d-flex flex-column justify-content-around">
+      <div><button class="btn btn-primary btnsize" (click)="openDialog()">Add Customer</button></div>
+      <div><button class="btn btn-primary btnsize" (click)="openPinDialog()">Add Pin</button></div>
+    </div>
   </div>
   <div class="content-container">
     <router-outlet></router-outlet>

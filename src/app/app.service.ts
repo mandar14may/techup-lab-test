@@ -12,6 +12,9 @@ export class AppService {
   private addPin = new BehaviorSubject<boolean>(false);
   addPinEvent$ = this.addPin.asObservable();
 
+  private pinListRefresh = new Subject;
+  pinListRefreshEvent$ = this.pinListRefresh.asObservable();
+
   constructor() { }
 
   onAddCustomerClicked(value: boolean){
@@ -22,4 +25,7 @@ export class AppService {
     this.addPin.next(value);
   }
 
+  onPinListrefresh(){
+    this.pinListRefresh.next(true)
+  }
 }

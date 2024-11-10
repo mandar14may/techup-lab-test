@@ -1,1 +1,22 @@
-<h1>listPin works</h1>
+<div class="pins-container">
+    <h3>List of Pins</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Image</th>
+          <th>Collaborators</th>
+          <th>Privacy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pin of pins">
+          <td>{{ pin.title }}</td>
+          <td><img [src]="pin.image" alt="Pin Image" class="img-thumbnail" width="100" height="100" /></td>
+          <td>{{ pin.collaborators.join(', ') }}</td>
+          <td>{{ pin.privacy }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

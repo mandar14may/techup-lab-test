@@ -26,5 +26,6 @@ export class PinsComponent {
 
   closeModal() {
     this.isPinModal = false; 
+    this.appService.onPinListrefresh()
   }
 }
