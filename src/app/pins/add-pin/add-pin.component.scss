@@ -1,0 +1,11 @@
+::ng-deep .mt-2{
+    white-space: nowrap;        
+    overflow: hidden;          
+    text-overflow: ellipsis;
+}
+
+.my-drop-zone {
+    border: 2px dashed #aaa;
+    padding: 20px;
+    text-align: center;
+}
