@@ -1,1 +1,6 @@
-<p>pins works!</p>
+<app-modal  
+[title]="'Add Customer'" [isVisible]="isPinModal" (closeModal)="closeModal()">
+<app-add-pin></app-add-pin>
+</app-modal>
+
+<app-list-pin></app-list-pin>

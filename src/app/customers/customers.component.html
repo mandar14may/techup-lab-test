@@ -1,1 +1,5 @@
-<p>customers works!</p>
+<h1>Customers Wroks</h1>
+<app-modal  
+[title]="'Add Customer'" [isVisible]="isCustomerModal" (closeModal)="closeModal()">
+  <app-add-customer></app-add-customer>
+</app-modal>

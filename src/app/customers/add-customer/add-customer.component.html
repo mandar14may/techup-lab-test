@@ -1,1 +1,49 @@
-<p>add-customer works!</p>
+<div class="add-cust-container">
+    <form [formGroup]="customerForm" (ngSubmit)="submitForm()" class="p-4 border rounded">
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">Name*</label>
+          <input id="name" type="text" class="form-control" formControlName="name">
+          <div *ngIf="customerForm.get('name')?.invalid && customerForm.get('name')?.touched" class="text-danger">
+            Name is required.
+          </div>
+        </div>
+    
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input id="email" type="email" class="form-control" formControlName="email">
+          <div *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched" class="text-danger">
+            Please enter a valid email.
+          </div>
+        </div>
+    
+        <!-- Region Field -->
+        <div class="form-group">
+          <label for="region">Region*</label>
+          <select id="region" class="form-control" formControlName="region" (change)="loadCountriesByRegion()">
+            <option value="" disabled>Select Region</option>
+            <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+          </select>
+          <div *ngIf="customerForm.get('region')?.invalid && customerForm.get('region')?.touched" class="text-danger">
+            Region is required.
+          </div>
+        </div>
+    
+        <!-- Country Field -->
+        <div class="form-group">
+          <label for="country">Country*</label>
+          <select id="country" class="form-control" formControlName="country" [disabled]="!countries.length">
+            <option value="" disabled>Select Country</option>
+            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+          </select>
+          <div *ngIf="customerForm.get('country')?.invalid && customerForm.get('country')?.touched" class="text-danger">
+            Country is required.
+          </div>
+        </div>
+        
+        <br>
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary" [disabled]="customerForm.invalid">Submit</button>
+      </form>
+</div>

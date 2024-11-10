@@ -1,1 +1,42 @@
-<p>add-pin works!</p>
+<div class="add-pin-container">
+    <form [formGroup]="pinForm" (ngSubmit)="submitForm()" class="p-4 border rounded">
+        <!-- Title Field -->
+        <div class="mb-3">
+            <label for="title">Title</label>
+            <input type="text" id="title" formControlName="title" class="form-control" placeholder="Enter pin title" />
+        </div>
+
+        <!-- Image Upload -->
+        <div class="mb-3">
+            <label for="image">Image</label>
+            <!-- <input type="file" ng2FileSelect [uploader]="uploader" (change)="onFileSelected()" class="form-control" /> -->
+            <input type="file" ng2FileSelect [uploader]="uploader" formControlName="image"/>
+            <div *ngIf="pinForm.get('image')?.value" class="mt-2">Selected: {{ pinForm.get('image')?.value }}</div>
+        </div>
+
+        <!-- Collaborators Multi-Select -->
+        <div class="mb-3">
+            <label for="collaborators">Collaborators</label>
+                <ngx-select [items]="customers"
+                formControlName="collaborators"
+                optionValueField="name" 
+                [multiple]="true"
+                placeholder="Select collaborators"
+                >
+                </ngx-select>
+        </div>
+
+        <!-- Privacy Options -->
+        <div class="mb-3">
+            <label>Privacy</label>
+            <div *ngFor="let option of privacyOptions">
+                <input type="radio" [value]="option" formControlName="privacy" />
+                {{ option }}
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary" [disabled]="!pinForm.valid">Save Pin</button>
+
+    </form>
+</div>
